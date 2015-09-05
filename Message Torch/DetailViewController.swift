@@ -11,9 +11,8 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
-
-
-    var detailItem: AnyObject? {
+    
+    var detailItem: MTService? {
         didSet {
             // Update the view.
             self.configureView()
@@ -22,9 +21,10 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail: AnyObject = self.detailItem {
+        if let detail: MTService = self.detailItem {
             if let label = self.detailDescriptionLabel {
-                label.text = detail.description
+                label.text = "Some stuff here"
+                self.title = detail.peripheral!.name
             }
         }
     }
