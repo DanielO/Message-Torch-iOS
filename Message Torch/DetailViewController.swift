@@ -8,10 +8,22 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+enum ColourToSet {
+    case Message
+    case Flame
+}
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-    
+class DetailViewController: UIViewController, FCColorPickerViewControllerDelegate {
+
+    @IBOutlet weak var brightness: UISlider!
+    @IBOutlet weak var messageText: UITextField!
+    @IBOutlet weak var messageColourButton: UIButton!
+    @IBOutlet weak var flameColourButton: UIButton!
+
+    var messageColour: UIColor!
+    var flameColour: UIColor!
+    var colourToSet : ColourToSet = .Flame
+
     var detailItem: MTService? {
         didSet {
             // Update the view.
@@ -22,10 +34,8 @@ class DetailViewController: UIViewController {
     func configureView() {
         // Update the user interface for the detail item.
         if let detail: MTService = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = "Some stuff here"
-                self.title = detail.peripheral!.name
-            }
+            println("configureView");
+            self.title = detail.peripheral!.name;
         }
     }
 
@@ -40,6 +50,41 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func pickMessageColour(sender: AnyObject) {
+        println("pickMessageColour");
+        let colourPicker = FCColorPickerViewController.colorPickerWithColor(self.messageColour, delegate: self);
+        self.colourToSet = .Message;
 
+        self.presentViewController(colourPicker, animated: true, completion: nil);
+    }
+
+    @IBAction func pickFlameColour(sender: AnyObject) {
+        println("pickFlameColour");
+        let colourPicker = FCColorPickerViewController.colorPickerWithColor(self.messageColour, delegate: self);
+        self.colourToSet = .Flame
+
+        self.presentViewController(colourPicker, animated: true, completion: nil);
+    }
+
+    @IBAction func resetSettings(sender: AnyObject) {
+    }
+    // FCColorPickerViewControllerDelegate
+    func colorPickerViewController(colorPicker: FCColorPickerViewController, didSelectColor: UIColor) {
+        println("Selected colour", didSelectColor);
+        switch self.colourToSet {
+        case .Message:
+            self.messageColour = didSelectColor
+            self.messageColourButton.backgroundColor = didSelectColor
+        case .Flame:
+            self.flameColour = didSelectColor
+            self.flameColourButton.backgroundColor = didSelectColor
+        }
+        self.dismissViewControllerAnimated(true, completion: nil);
+    }
+
+    func colorPickerViewControllerDidCancel(colorPicker: FCColorPickerViewController) {
+        println("Cancelled selection");
+        self.dismissViewControllerAnimated(true, completion: nil);
+    }
 }
 

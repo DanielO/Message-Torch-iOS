@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6779FFE03CABC5DD8006D5AC /* Pods_Message_Torch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB363CA72E34F968BFC0E2B /* Pods_Message_Torch.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		E01EACAD1B95E27D00731B97 /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01EACAC1B95E27D00731B97 /* DeviceCell.swift */; };
+		E023DBB91B9C0631008107AA /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = E023DBB51B9C0631008107AA /* Assets */; };
+		E0A629791B9C7DE4001F2FDB /* libiOS-Color-Picker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0A629781B9C7DE4001F2FDB /* libiOS-Color-Picker.a */; };
 		E0DCD4351B6EF07A00E04219 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DCD4341B6EF07A00E04219 /* AppDelegate.swift */; };
 		E0DCD4371B6EF07A00E04219 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DCD4361B6EF07A00E04219 /* MasterViewController.swift */; };
 		E0DCD4391B6EF07A00E04219 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DCD4381B6EF07A00E04219 /* DetailViewController.swift */; };
@@ -29,7 +32,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		58BACB2E64AF03380562E1C7 /* Pods-Message Torch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Message Torch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Message Torch/Pods-Message Torch.debug.xcconfig"; sourceTree = "<group>"; };
+		7AB363CA72E34F968BFC0E2B /* Pods_Message_Torch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Message_Torch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBBB06CDD44DB4E143814C36 /* Pods-Message Torch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Message Torch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Message Torch/Pods-Message Torch.release.xcconfig"; sourceTree = "<group>"; };
 		E01EACAC1B95E27D00731B97 /* DeviceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
+		E023DBB51B9C0631008107AA /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		E0A629781B9C7DE4001F2FDB /* libiOS-Color-Picker.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libiOS-Color-Picker.a"; path = "Pods/../build/Debug-iphoneos/libiOS-Color-Picker.a"; sourceTree = "<group>"; };
+		E0DC66851B9D04EE00C1D9E8 /* Message Torch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Message Torch-Bridging-Header.h"; sourceTree = "<group>"; };
 		E0DCD42F1B6EF07A00E04219 /* Message Torch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Message Torch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0DCD4331B6EF07A00E04219 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0DCD4341B6EF07A00E04219 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0A629791B9C7DE4001F2FDB /* libiOS-Color-Picker.a in Frameworks */,
+				6779FFE03CABC5DD8006D5AC /* Pods_Message_Torch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +73,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88964B0C059308A4A8FEA127 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				58BACB2E64AF03380562E1C7 /* Pods-Message Torch.debug.xcconfig */,
+				DBBB06CDD44DB4E143814C36 /* Pods-Message Torch.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AB934EDBF40611481DDF2A9E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0A629781B9C7DE4001F2FDB /* libiOS-Color-Picker.a */,
+				7AB363CA72E34F968BFC0E2B /* Pods_Message_Torch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E0DCD4261B6EF07A00E04219 = {
 			isa = PBXGroup;
 			children = (
 				E0DCD4311B6EF07A00E04219 /* Message Torch */,
 				E0DCD4491B6EF07A00E04219 /* Message TorchTests */,
 				E0DCD4301B6EF07A00E04219 /* Products */,
+				88964B0C059308A4A8FEA127 /* Pods */,
+				AB934EDBF40611481DDF2A9E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +114,7 @@
 		E0DCD4311B6EF07A00E04219 /* Message Torch */ = {
 			isa = PBXGroup;
 			children = (
+				E023DBB51B9C0631008107AA /* Assets */,
 				E0DCD4341B6EF07A00E04219 /* AppDelegate.swift */,
 				E0DCD4361B6EF07A00E04219 /* MasterViewController.swift */,
 				E0DCD4381B6EF07A00E04219 /* DetailViewController.swift */,
@@ -92,6 +124,7 @@
 				E0DCD4321B6EF07A00E04219 /* Supporting Files */,
 				E0DCD4581B7300FF00E04219 /* MTService.swift */,
 				E01EACAC1B95E27D00731B97 /* DeviceCell.swift */,
+				E0DC66851B9D04EE00C1D9E8 /* Message Torch-Bridging-Header.h */,
 			);
 			path = "Message Torch";
 			sourceTree = "<group>";
@@ -128,9 +161,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E0DCD4501B6EF07A00E04219 /* Build configuration list for PBXNativeTarget "Message Torch" */;
 			buildPhases = (
+				EC6EE78335FDD1E513B29340 /* Check Pods Manifest.lock */,
 				E0DCD42B1B6EF07A00E04219 /* Sources */,
 				E0DCD42C1B6EF07A00E04219 /* Frameworks */,
 				E0DCD42D1B6EF07A00E04219 /* Resources */,
+				B46D327380560AEADEA67D5E /* Copy Pods Resources */,
+				93E2EFF5112AF75BDBC7419F /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -203,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0DCD43C1B6EF07A00E04219 /* Main.storyboard in Resources */,
+				E023DBB91B9C0631008107AA /* Assets in Resources */,
 				E0DCD4411B6EF07A00E04219 /* LaunchScreen.xib in Resources */,
 				E0DCD43E1B6EF07A00E04219 /* Images.xcassets in Resources */,
 			);
@@ -216,6 +253,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		93E2EFF5112AF75BDBC7419F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Message Torch/Pods-Message Torch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B46D327380560AEADEA67D5E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Message Torch/Pods-Message Torch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC6EE78335FDD1E513B29340 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E0DCD42B1B6EF07A00E04219 /* Sources */ = {
@@ -353,27 +438,43 @@
 		};
 		E0DCD4511B6EF07A00E04219 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58BACB2E64AF03380562E1C7 /* Pods-Message Torch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Message Torch/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NKOColorPickerView-avzwetvjgabwgnbuaouexezqyyzv/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Message Torch/Message Torch-Bridging-Header.h";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Pods";
 			};
 			name = Debug;
 		};
 		E0DCD4521B6EF07A00E04219 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBBB06CDD44DB4E143814C36 /* Pods-Message Torch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Message Torch/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NKOColorPickerView-avzwetvjgabwgnbuaouexezqyyzv/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Message Torch/Message Torch-Bridging-Header.h";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Pods";
 			};
 			name = Release;
 		};

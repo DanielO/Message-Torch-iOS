@@ -11,6 +11,4 @@ import UIKit
 
 class DeviceCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var dBm: UILabel!
-        
 }
