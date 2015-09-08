@@ -70,7 +70,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCa-hL-QjO">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCa-hL-QjO">
                                 <rect key="frame" x="150" y="144" width="434" height="21"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -79,7 +79,7 @@
                                     <action selector="pickMessageColour:" destination="JEX-9P-axG" eventType="touchUpInside" id="H3u-H7-567"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9RQ-cx-AVM">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9RQ-cx-AVM">
                                 <rect key="frame" x="150" y="173" width="434" height="21"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -102,6 +102,8 @@
                         <constraints>
                             <constraint firstItem="Moh-Tq-Utk" firstAttribute="leading" secondItem="VXV-r0-lvP" secondAttribute="trailing" constant="52" id="1qX-RW-YxA"/>
                             <constraint firstItem="VXV-r0-lvP" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="A7D-58-79D"/>
+                            <constraint firstItem="9RQ-cx-AVM" firstAttribute="trailing" secondItem="svH-Pt-448" secondAttribute="trailingMargin" id="EHn-N5-4Qd"/>
+                            <constraint firstItem="VCa-hL-QjO" firstAttribute="trailing" secondItem="svH-Pt-448" secondAttribute="trailingMargin" id="Q7A-DI-XdB"/>
                             <constraint firstItem="mfq-9I-Opw" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="RNq-wG-hY0"/>
                             <constraint firstItem="dqK-Le-ssC" firstAttribute="leading" secondItem="UeV-41-LLB" secondAttribute="trailing" constant="28" id="drT-lC-TgV"/>
                             <constraint firstItem="Moh-Tq-Utk" firstAttribute="trailing" secondItem="svH-Pt-448" secondAttribute="trailingMargin" id="iZx-le-CkA"/>

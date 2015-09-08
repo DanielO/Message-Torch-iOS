@@ -10,7 +10,6 @@
 		6779FFE03CABC5DD8006D5AC /* Pods_Message_Torch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB363CA72E34F968BFC0E2B /* Pods_Message_Torch.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		E01EACAD1B95E27D00731B97 /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01EACAC1B95E27D00731B97 /* DeviceCell.swift */; };
 		E023DBB91B9C0631008107AA /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = E023DBB51B9C0631008107AA /* Assets */; };
-		E0A629791B9C7DE4001F2FDB /* libiOS-Color-Picker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0A629781B9C7DE4001F2FDB /* libiOS-Color-Picker.a */; };
 		E0DCD4351B6EF07A00E04219 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DCD4341B6EF07A00E04219 /* AppDelegate.swift */; };
 		E0DCD4371B6EF07A00E04219 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DCD4361B6EF07A00E04219 /* MasterViewController.swift */; };
 		E0DCD4391B6EF07A00E04219 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DCD4381B6EF07A00E04219 /* DetailViewController.swift */; };
@@ -19,6 +18,7 @@
 		E0DCD4411B6EF07A00E04219 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0DCD43F1B6EF07A00E04219 /* LaunchScreen.xib */; };
 		E0DCD44D1B6EF07A00E04219 /* Message_TorchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DCD44C1B6EF07A00E04219 /* Message_TorchTests.swift */; };
 		E0DCD4591B7300FF00E04219 /* MTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DCD4581B7300FF00E04219 /* MTService.swift */; };
+		E0EB79251B9E9E1C008576C4 /* iOS_Color_Picker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0EB79241B9E9E1C008576C4 /* iOS_Color_Picker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +51,7 @@
 		E0DCD44B1B6EF07A00E04219 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0DCD44C1B6EF07A00E04219 /* Message_TorchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message_TorchTests.swift; sourceTree = "<group>"; };
 		E0DCD4581B7300FF00E04219 /* MTService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTService.swift; sourceTree = "<group>"; };
+		E0EB79241B9E9E1C008576C4 /* iOS_Color_Picker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iOS_Color_Picker.framework; path = "Pods/../build/Debug-iphoneos/iOS_Color_Picker.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0A629791B9C7DE4001F2FDB /* libiOS-Color-Picker.a in Frameworks */,
+				E0EB79251B9E9E1C008576C4 /* iOS_Color_Picker.framework in Frameworks */,
 				6779FFE03CABC5DD8006D5AC /* Pods_Message_Torch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,6 +86,7 @@
 		AB934EDBF40611481DDF2A9E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E0EB79241B9E9E1C008576C4 /* iOS_Color_Picker.framework */,
 				E0A629781B9C7DE4001F2FDB /* libiOS-Color-Picker.a */,
 				7AB363CA72E34F968BFC0E2B /* Pods_Message_Torch.framework */,
 			);
@@ -443,13 +445,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "Message Torch/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
+				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NKOColorPickerView-avzwetvjgabwgnbuaouexezqyyzv/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
+				INFOPLIST_FILE = "Message Torch/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Message Torch/Message Torch-Bridging-Header.h";
@@ -464,13 +466,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "Message Torch/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
+				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/NKOColorPickerView-avzwetvjgabwgnbuaouexezqyyzv/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
+				INFOPLIST_FILE = "Message Torch/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Message Torch/Message Torch-Bridging-Header.h";

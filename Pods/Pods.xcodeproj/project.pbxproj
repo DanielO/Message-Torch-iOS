@@ -23,6 +23,8 @@
 		C694732D6EB63ECFBC9E2BFC104F8764 /* FCBrightDarkGradView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F56DF3B45A657FDBA2929E7D816C82 /* FCBrightDarkGradView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		D268C05CACD813A30125509843767730 /* colormap.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F3040C6B852037521A9F862CF8AAE6A /* colormap.png */; };
 		D7805308B4FF6E06B747C9ABA4F3B4B0 /* FCColorPickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AC95DEDA0AA69489EAA95B9FFC9E7B69 /* FCColorPickerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E0EB792C1B9EA0ED008576C4 /* FCColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D2395623F4FF735F9DCAD310E1AD114 /* FCColorPickerViewController.xib */; };
+		E0EB792D1B9EA0F1008576C4 /* colormap.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F3040C6B852037521A9F862CF8AAE6A /* colormap.png */; };
 		FE676DA5E6810664D6BE99BF0D64F39E /* FCColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 635EC5C3D92110FFB00EE5FE70E1A2F0 /* FCColorPickerViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 /* End PBXBuildFile section */
 
@@ -238,6 +240,7 @@
 				9D2470F0A99DAFA35D74640A0B0DBE9A /* Sources */,
 				7C6B6BC5FAB9F3A37BD6E0115A3B39D5 /* Frameworks */,
 				6ABBA2A1675023A6FD128C4DB1F9015D /* Headers */,
+				E0EB792B1B9EA0E6008576C4 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -301,6 +304,15 @@
 			files = (
 				9ED084340591010A2D805940EDA7E8FF /* FCColorPickerViewController.xib in Resources */,
 				D268C05CACD813A30125509843767730 /* colormap.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0EB792B1B9EA0E6008576C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0EB792C1B9EA0ED008576C4 /* FCColorPickerViewController.xib in Resources */,
+				E0EB792D1B9EA0F1008576C4 /* colormap.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
