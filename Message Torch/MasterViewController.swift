@@ -80,8 +80,7 @@ class MasterViewController: UITableViewController, CBCentralManagerDelegate, CBP
 
     func centralManager(central: CBCentralManager!, didDiscoverPeripheral peripheral: CBPeripheral!, advertisementData: [NSObject : AnyObject]!, RSSI: NSNumber!) {
         // Be sure to retain the peripheral or it will fail during connection.
-        print("Found peripheral ");
-        println(peripheral);
+        println("Found peripheral \(peripheral.name) at \(RSSI) dBm");
         // Validate peripheral information
         if ((peripheral == nil) || (peripheral.name == nil) || (peripheral.name == "")) {
             return
@@ -90,26 +89,25 @@ class MasterViewController: UITableViewController, CBCentralManagerDelegate, CBP
             self.peripherals!.addObject(MTService(initWithPeripheral: peripheral))
             self.tableView.reloadData()
         }
-
-        //central.connectPeripheral(peripheral, options: nil)
     }
 
+    // XXX: terrible, should call connect when the user taps, add busy spinner, then transistion to detail view when this triggers
+    // XXX: also should sort out the scanning - just scan until the user taps on a device
     func centralManager(central: CBCentralManager!, didConnectPeripheral peripheral: CBPeripheral!) {
-
         if (peripheral == nil) {
             return;
         }
 
-        // Create new service class
-        if (peripheral == self.peripheralBLE) {
-        }
+        println("Peripheral connected: \(peripheral.name)")
+
+        peripheral.discoverServices([MTServiceUUID])
+
 
         // Stop scanning for new devices
         stopScanning()
     }
 
     func centralManager(central: CBCentralManager!, didDisconnectPeripheral peripheral: CBPeripheral!, error: NSError!) {
-
         if (peripheral == nil) {
             return;
         }
@@ -123,7 +121,6 @@ class MasterViewController: UITableViewController, CBCentralManagerDelegate, CBP
         // Start scanning for new devices
         //self.startScanning()
     }
-
     func centralManagerDidUpdateState(central: CBCentralManager!) {
         switch (central.state) {
         case CBCentralManagerState.PoweredOff:
@@ -201,7 +198,8 @@ class MasterViewController: UITableViewController, CBCentralManagerDelegate, CBP
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
                 let device = self.peripherals?.objectAtIndex(indexPath.row) as! MTService
-                println("device ", device)
+                println("Connecting device \(device.peripheral!.name)")
+                self.centralManager!.connectPeripheral(device.peripheral, options: nil)
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = device
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
