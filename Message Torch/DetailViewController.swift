@@ -34,10 +34,18 @@ class DetailViewController: UIViewController, FCColorPickerViewControllerDelegat
     }
 
     func configureView() {
+
         // Update the user interface for the detail item.
         if let detail: MTService = self.detailItem {
             println("MTService configureView");
             self.title = detail.peripheral!.name;
+            self.view.alpha = 1.0
+            self.view.userInteractionEnabled = true
+            self.view.backgroundColor = UIColor.whiteColor()
+        } else {
+            self.view.alpha = 0.3
+            self.view.userInteractionEnabled = false
+            self.view.backgroundColor = UIColor.grayColor()
         }
         if let msgText = self.messageText {
             println("setting message Text delegate")
