@@ -41,7 +41,7 @@ class MTService: NSObject, CBPeripheralDelegate {
 
     func startDiscoveringServices() {
         if let periph = self.peripheral {
-            println("MTService discovering services");
+            print("MTService discovering services");
             periph.discoverServices([MTServiceUUID])
         }
     }
@@ -56,8 +56,8 @@ class MTService: NSObject, CBPeripheralDelegate {
     }
 
     // Mark: - CBPeripheralDelegate
-    func peripheral(peripheral: CBPeripheral!, didDiscoverServices error: NSError!) {
-        println("did discover services")
+    func peripheral(peripheral: CBPeripheral, didDiscoverServices error: NSError?) {
+        print("did discover services");
         let uuidsForBTService: [CBUUID] = [brightnessUUID, messageUUID, messageRGBUUID, flameRGBUUID, resetUUID]
 
         if (peripheral != self.peripheral) {
@@ -69,49 +69,51 @@ class MTService: NSObject, CBPeripheralDelegate {
             return
         }
 
-        if ((peripheral.services == nil) || (peripheral.services.count == 0)) {
+        if ((peripheral.services == nil) || (peripheral.services!.count == 0)) {
             // No Services
             return
         }
 
-        for service in peripheral.services {
-            if service.UUID == MTServiceUUID {
-                println("Found service, discovering characteritsics");
-                peripheral.discoverCharacteristics(uuidsForBTService, forService: service as! CBService)
+        for service in peripheral.services! {
+            if (service.UUID == MTServiceUUID) {
+                print("Found service, discovering characteritsics");
+                peripheral.discoverCharacteristics(uuidsForBTService, forService: service)
             }
         }
     }
 
-    func peripheral(peripheral: CBPeripheral!, didDiscoverCharacteristicsForService service: CBService!, error: NSError!) {
-        println("Did discover characteristics")
+    @objc func peripheral(_peripheral: CBPeripheral,
+                          didDiscoverCharacteristicsForService service: CBService,
+                          error: NSError?) {
+        print("Did discover characteristics");
         if (peripheral != self.peripheral) {
-            println("discovered characteristics for wrong device")
+            print("discovered characteristics for wrong device")
             // Wrong Peripheral
             return
         }
 
         if (error != nil) {
-            println("error during discovery ", error)
+            print("error during discovery ", error)
             return
         }
 
-        for characteristic in service.characteristics {
-            println("looking at ", characteristic)
+        for characteristic in service.characteristics! {
+            print("looking at ", characteristic)
             switch characteristic.UUID {
             case brightnessUUID:
-                self.brightnessCharacteristic = (characteristic as! CBCharacteristic)
+                self.brightnessCharacteristic = characteristic
             case messageUUID:
-                self.messageCharacteristic = (characteristic as! CBCharacteristic)
+                self.messageCharacteristic = characteristic
             case messageRGBUUID:
-                self.messageRGBCharacteristic = (characteristic as! CBCharacteristic)
+                self.messageRGBCharacteristic = characteristic
             case flameRGBUUID:
-                self.flameRGBCharacteristic = (characteristic as! CBCharacteristic)
+                self.flameRGBCharacteristic = characteristic
             case resetUUID:
-                self.resetCharacteristic = (characteristic as! CBCharacteristic)
+                self.resetCharacteristic = characteristic
             default:
                 continue
             }
-            peripheral.setNotifyValue(true, forCharacteristic: characteristic as! CBCharacteristic)
+            peripheral!.setNotifyValue(true, forCharacteristic: characteristic)
             // Send notification that Bluetooth is connected and all required characteristics are discovered
             self.sendBTServiceNotificationWithIsBluetoothConnected(true)
         }
@@ -120,15 +122,15 @@ class MTService: NSObject, CBPeripheralDelegate {
     // Mark: - Private
     func writeBrightness(brightness: UInt8) {
         if let peripheral = self.peripheral {
-            peripheral.writeValue(NSData(bytes: [brightness], length: 1), forCharacteristic: self.brightnessCharacteristic, type: CBCharacteristicWriteType.WithoutResponse)
+            peripheral.writeValue(NSData(bytes: [brightness], length: 1), forCharacteristic: self.brightnessCharacteristic!, type: CBCharacteristicWriteType.WithoutResponse)
         }
     }
 
     func writeMessage(message: String) {
         if let peripheral = self.peripheral {
-        var data = message.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: true)
+        let data = message.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: true)
 
-            peripheral.writeValue(data, forCharacteristic: self.messageCharacteristic, type: CBCharacteristicWriteType.WithoutResponse)
+            peripheral.writeValue(data!, forCharacteristic: self.messageCharacteristic!, type: CBCharacteristicWriteType.WithoutResponse)
         }
     }
 
@@ -142,23 +144,23 @@ class MTService: NSObject, CBPeripheralDelegate {
             colour.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
             var data: [UInt8] = [UInt8(red * 255), UInt8(green * 255), UInt8(blue * 255)]
             peripheral.writeValue(NSData(bytes: &data, length: data.count), forCharacteristic: characteristic_, type: CBCharacteristicWriteType.WithoutResponse)
-            println("Writing ", colour, " to ", characteristic_);
+            print("Writing ", colour, " to ", characteristic_);
         }
     }
 
     func writeMessageColour(colour: UIColor) {
-        println("Message colour ", colour)
+        print("Message colour ", colour)
         self.writeColour(colour, characteristic: self.messageRGBCharacteristic)
     }
     
     func writeFlameColour(colour: UIColor) {
-        println("Flame colour ", colour)
+        print("Flame colour ", colour)
         self.writeColour(colour, characteristic: self.flameRGBCharacteristic)
     }
 
     func writeReset() {
         if let peripheral = self.peripheral {
-            peripheral.writeValue(NSData(bytes: [0], length: 1), forCharacteristic: self.resetCharacteristic, type: CBCharacteristicWriteType.WithoutResponse)
+            peripheral.writeValue(NSData(bytes: [0] as [UInt8], length: 1), forCharacteristic: self.resetCharacteristic!, type: CBCharacteristicWriteType.WithoutResponse)
         }
     }
 

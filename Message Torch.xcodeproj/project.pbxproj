@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6779FFE03CABC5DD8006D5AC /* Pods_Message_Torch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB363CA72E34F968BFC0E2B /* Pods_Message_Torch.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		31951630BAC166C648CBA357 /* libPods-Message Torch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E5E41984E23A96B9A001EB4 /* libPods-Message Torch.a */; };
 		E01EACAD1B95E27D00731B97 /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01EACAC1B95E27D00731B97 /* DeviceCell.swift */; };
 		E023DBB91B9C0631008107AA /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = E023DBB51B9C0631008107AA /* Assets */; };
 		E0DCD4351B6EF07A00E04219 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DCD4341B6EF07A00E04219 /* AppDelegate.swift */; };
@@ -32,9 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		58BACB2E64AF03380562E1C7 /* Pods-Message Torch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Message Torch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Message Torch/Pods-Message Torch.debug.xcconfig"; sourceTree = "<group>"; };
-		7AB363CA72E34F968BFC0E2B /* Pods_Message_Torch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Message_Torch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBBB06CDD44DB4E143814C36 /* Pods-Message Torch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Message Torch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Message Torch/Pods-Message Torch.release.xcconfig"; sourceTree = "<group>"; };
+		5E2C6F4C68FEB41373225A12 /* Pods-Message Torch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Message Torch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Message Torch/Pods-Message Torch.debug.xcconfig"; sourceTree = "<group>"; };
+		8E5E41984E23A96B9A001EB4 /* libPods-Message Torch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Message Torch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E01EACAC1B95E27D00731B97 /* DeviceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
 		E023DBB51B9C0631008107AA /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
 		E0A629781B9C7DE4001F2FDB /* libiOS-Color-Picker.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libiOS-Color-Picker.a"; path = "Pods/../build/Debug-iphoneos/libiOS-Color-Picker.a"; sourceTree = "<group>"; };
@@ -52,6 +51,7 @@
 		E0DCD44C1B6EF07A00E04219 /* Message_TorchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message_TorchTests.swift; sourceTree = "<group>"; };
 		E0DCD4581B7300FF00E04219 /* MTService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTService.swift; sourceTree = "<group>"; };
 		E0EB79241B9E9E1C008576C4 /* iOS_Color_Picker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iOS_Color_Picker.framework; path = "Pods/../build/Debug-iphoneos/iOS_Color_Picker.framework"; sourceTree = "<group>"; };
+		FD5D1B941192DEED1862EA2F /* Pods-Message Torch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Message Torch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Message Torch/Pods-Message Torch.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +60,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0EB79251B9E9E1C008576C4 /* iOS_Color_Picker.framework in Frameworks */,
-				6779FFE03CABC5DD8006D5AC /* Pods_Message_Torch.framework in Frameworks */,
+				31951630BAC166C648CBA357 /* libPods-Message Torch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,21 +74,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		88964B0C059308A4A8FEA127 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				58BACB2E64AF03380562E1C7 /* Pods-Message Torch.debug.xcconfig */,
-				DBBB06CDD44DB4E143814C36 /* Pods-Message Torch.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		AB934EDBF40611481DDF2A9E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				E0EB79241B9E9E1C008576C4 /* iOS_Color_Picker.framework */,
 				E0A629781B9C7DE4001F2FDB /* libiOS-Color-Picker.a */,
-				7AB363CA72E34F968BFC0E2B /* Pods_Message_Torch.framework */,
+				8E5E41984E23A96B9A001EB4 /* libPods-Message Torch.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -99,8 +90,8 @@
 				E0DCD4311B6EF07A00E04219 /* Message Torch */,
 				E0DCD4491B6EF07A00E04219 /* Message TorchTests */,
 				E0DCD4301B6EF07A00E04219 /* Products */,
-				88964B0C059308A4A8FEA127 /* Pods */,
 				AB934EDBF40611481DDF2A9E /* Frameworks */,
+				ED6315B9F93850A1F1543969 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,6 +147,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		ED6315B9F93850A1F1543969 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E2C6F4C68FEB41373225A12 /* Pods-Message Torch.debug.xcconfig */,
+				FD5D1B941192DEED1862EA2F /* Pods-Message Torch.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -163,12 +163,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E0DCD4501B6EF07A00E04219 /* Build configuration list for PBXNativeTarget "Message Torch" */;
 			buildPhases = (
-				EC6EE78335FDD1E513B29340 /* Check Pods Manifest.lock */,
+				C217953ED76417591822DBFA /* 📦 Check Pods Manifest.lock */,
 				E0DCD42B1B6EF07A00E04219 /* Sources */,
 				E0DCD42C1B6EF07A00E04219 /* Frameworks */,
 				E0DCD42D1B6EF07A00E04219 /* Resources */,
-				B46D327380560AEADEA67D5E /* Copy Pods Resources */,
-				93E2EFF5112AF75BDBC7419F /* Embed Pods Frameworks */,
+				B4661E8B995AFC57C0B1DBB8 /* 📦 Embed Pods Frameworks */,
+				F86EFFE3A31E22DDE64E8297 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -203,7 +203,8 @@
 		E0DCD4271B6EF07A00E04219 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Daniel O'Connor";
 				TargetAttributes = {
 					E0DCD42E1B6EF07A00E04219 = {
@@ -257,14 +258,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		93E2EFF5112AF75BDBC7419F /* Embed Pods Frameworks */ = {
+		B4661E8B995AFC57C0B1DBB8 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,34 +273,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Message Torch/Pods-Message Torch-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B46D327380560AEADEA67D5E /* Copy Pods Resources */ = {
+		C217953ED76417591822DBFA /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Message Torch/Pods-Message Torch-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EC6EE78335FDD1E513B29340 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F86EFFE3A31E22DDE64E8297 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Message Torch/Pods-Message Torch-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -376,6 +377,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -391,7 +393,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -430,7 +432,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -440,7 +442,7 @@
 		};
 		E0DCD4511B6EF07A00E04219 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 58BACB2E64AF03380562E1C7 /* Pods-Message Torch.debug.xcconfig */;
+			baseConfigurationReference = 5E2C6F4C68FEB41373225A12 /* Pods-Message Torch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -452,6 +454,7 @@
 				INFOPLIST_FILE = "Message Torch/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "au.net.dons.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Message Torch/Message Torch-Bridging-Header.h";
@@ -461,7 +464,7 @@
 		};
 		E0DCD4521B6EF07A00E04219 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DBBB06CDD44DB4E143814C36 /* Pods-Message Torch.release.xcconfig */;
+			baseConfigurationReference = FD5D1B941192DEED1862EA2F /* Pods-Message Torch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -473,6 +476,7 @@
 				INFOPLIST_FILE = "Message Torch/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "au.net.dons.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Message Torch/Message Torch-Bridging-Header.h";
@@ -494,6 +498,7 @@
 				);
 				INFOPLIST_FILE = "Message TorchTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "au.net.dons.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Message Torch.app/Message Torch";
 			};
@@ -509,6 +514,7 @@
 				);
 				INFOPLIST_FILE = "Message TorchTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "au.net.dons.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Message Torch.app/Message Torch";
 			};

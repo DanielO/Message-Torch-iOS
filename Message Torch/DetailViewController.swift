@@ -27,7 +27,7 @@ class DetailViewController: UIViewController, FCColorPickerViewControllerDelegat
 
     var detailItem: MTService? {
         didSet {
-            println("Detail item set in detail view")
+            print("Detail item set in detail view")
             // Update the view.
             self.configureView()
         }
@@ -37,7 +37,7 @@ class DetailViewController: UIViewController, FCColorPickerViewControllerDelegat
 
         // Update the user interface for the detail item.
         if let detail: MTService = self.detailItem {
-            println("MTService configureView");
+            print("MTService configureView");
             self.title = detail.peripheral!.name;
             self.view.alpha = 1.0
             self.view.userInteractionEnabled = true
@@ -48,8 +48,8 @@ class DetailViewController: UIViewController, FCColorPickerViewControllerDelegat
             self.view.backgroundColor = UIColor.grayColor()
         }
         if let msgText = self.messageText {
-            println("setting message Text delegate")
-            self.messageText.delegate = self
+            print("setting message Text delegate")
+            msgText.delegate = self
         }
     }
 
@@ -64,11 +64,11 @@ class DetailViewController: UIViewController, FCColorPickerViewControllerDelegat
         // Dispose of any resources that can be recreated.
     }
 
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        println("touchesBegan")
-        self.messageText.endEditing(true)
-        super.touchesBegan(touches, withEvent:event)
-    }
+//    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+//        print("touchesBegan")
+//        self.messageText.endEditing(true)
+//        super.touchesBegan(touches, withEvent:event)
+//    }
 
     @IBAction func changeBrightness(sender: AnyObject) {
         // Rate limit brightness settings to not spam the device
@@ -78,28 +78,28 @@ class DetailViewController: UIViewController, FCColorPickerViewControllerDelegat
             }
         }
         self.actuallyChangeBrightness()
-        self.brightnessRateLmitTimer = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: "actuallyChangeBrightness", userInfo: nil, repeats: false)
+        self.brightnessRateLmitTimer = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: #selector(DetailViewController.actuallyChangeBrightness), userInfo: nil, repeats: false)
     }
 
     func actuallyChangeBrightness() {
-        println("Brightness \(brightness.value)")
+        print("Brightness \(brightness.value)")
         self.detailItem!.writeBrightness(UInt8(self.brightness.value))
     }
 
     @IBAction func messageTextEdited(sender: AnyObject) {
-        println("Message changed to \(messageText.text)")
-        self.detailItem!.writeMessage(messageText.text)
+        print("Message changed to \(messageText.text)")
+        self.detailItem!.writeMessage(messageText!.text!)
         messageText.resignFirstResponder()
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        println("textFieldShouldReturn")
+        print("textFieldShouldReturn")
         self.messageText.resignFirstResponder()
         return true
     }
 
     @IBAction func pickMessageColour(sender: AnyObject) {
-        println("pickMessageColour");
+        print("pickMessageColour");
         let colourPicker = FCColorPickerViewController.colorPickerWithColor(self.messageColour, delegate: self);
         self.colourToSet = .Message;
 
@@ -107,7 +107,7 @@ class DetailViewController: UIViewController, FCColorPickerViewControllerDelegat
     }
 
     @IBAction func pickFlameColour(sender: AnyObject) {
-        println("pickFlameColour");
+        print("pickFlameColour");
         let colourPicker = FCColorPickerViewController.colorPickerWithColor(self.messageColour, delegate: self);
         self.colourToSet = .Flame
 
@@ -115,13 +115,13 @@ class DetailViewController: UIViewController, FCColorPickerViewControllerDelegat
     }
 
     @IBAction func resetSettings(sender: AnyObject) {
-        println("Resetting settings")
+        print("Resetting settings")
         self.detailItem!.writeReset()
     }
 
     // FCColorPickerViewControllerDelegate
     func colorPickerViewController(colorPicker: FCColorPickerViewController, didSelectColor: UIColor) {
-        println("Selected colour", didSelectColor);
+        print("Selected colour", didSelectColor);
         switch self.colourToSet {
         case .Message:
             self.messageColour = didSelectColor
@@ -136,7 +136,7 @@ class DetailViewController: UIViewController, FCColorPickerViewControllerDelegat
     }
 
     func colorPickerViewControllerDidCancel(colorPicker: FCColorPickerViewController) {
-        println("Cancelled selection");
+        print("Cancelled selection");
         self.dismissViewControllerAnimated(true, completion: nil);
     }
 }

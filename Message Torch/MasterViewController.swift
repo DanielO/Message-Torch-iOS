@@ -11,8 +11,6 @@ import UIKit
 
 class MasterViewController: UITableViewController, CBCentralManagerDelegate, CBPeripheralDelegate {
 
-    var detailViewController: DetailViewController? = nil
-
     private var centralManager: CBCentralManager?
     private var peripheralBLE: CBPeripheral?
     private var mainCharacteristic: CBCharacteristic?
@@ -30,13 +28,12 @@ class MasterViewController: UITableViewController, CBCentralManagerDelegate, CBP
     override func viewDidLoad() {
         super.viewDidLoad()
         if let split = self.splitViewController {
-            let controllers = split.viewControllers
-            self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
+            _ = split.viewControllers
         }
 
         self.refreshControl = UIRefreshControl()
         self.refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl!.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl!.addTarget(self, action: #selector(MasterViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
 
         centralManager = CBCentralManager(delegate: self, queue: nil)
@@ -78,11 +75,11 @@ class MasterViewController: UITableViewController, CBCentralManagerDelegate, CBP
 
     // MARK: - CBCentralManagerDelegate
 
-    func centralManager(central: CBCentralManager!, didDiscoverPeripheral peripheral: CBPeripheral!, advertisementData: [NSObject : AnyObject]!, RSSI: NSNumber!) {
+    func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
         // Be sure to retain the peripheral or it will fail during connection.
-        println("Found peripheral \(peripheral.name) at \(RSSI) dBm");
+        print("Found peripheral \(peripheral.name) at \(RSSI) dBm");
         // Validate peripheral information
-        if ((peripheral == nil) || (peripheral.name == nil) || (peripheral.name == "")) {
+        if peripheral.name == nil || peripheral.name == "" {
             return
         }
         if (!self.peripherals!.containsObject(peripheral)) {
@@ -93,12 +90,8 @@ class MasterViewController: UITableViewController, CBCentralManagerDelegate, CBP
 
     // XXX: terrible, should call connect when the user taps, add busy spinner, then transistion to detail view when this triggers
     // XXX: also should sort out the scanning - just scan until the user taps on a device
-    func centralManager(central: CBCentralManager!, didConnectPeripheral peripheral: CBPeripheral!) {
-        if (peripheral == nil) {
-            return;
-        }
-
-        println("Peripheral connected: \(peripheral.name)")
+    func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
+        print("Peripheral connected: \(peripheral.name)")
 
         peripheral.discoverServices([MTServiceUUID])
 
@@ -107,11 +100,7 @@ class MasterViewController: UITableViewController, CBCentralManagerDelegate, CBP
         stopScanning()
     }
 
-    func centralManager(central: CBCentralManager!, didDisconnectPeripheral peripheral: CBPeripheral!, error: NSError!) {
-        if (peripheral == nil) {
-            return;
-        }
-
+    func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
         // See if it was our peripheral that disconnected
         if (self.peripherals!.containsObject(peripheral)) {
             self.peripherals!.removeObject(peripheral)
@@ -121,33 +110,30 @@ class MasterViewController: UITableViewController, CBCentralManagerDelegate, CBP
         // Start scanning for new devices
         //self.startScanning()
     }
-    func centralManagerDidUpdateState(central: CBCentralManager!) {
+    func centralManagerDidUpdateState(central: CBCentralManager) {
         switch (central.state) {
         case CBCentralManagerState.PoweredOff:
-            println("BT powered off")
+            print("BT powered off")
             self.clearDevices()
 
         case CBCentralManagerState.Unauthorized:
-            println("BT not supported")
+            print("BT not supported")
             // Indicate to user that the iOS device does not support BLE.
 
         case CBCentralManagerState.Unknown:
-            println("BT unknown event")
+            print("BT unknown event")
             // Wait for another event
 
         case CBCentralManagerState.PoweredOn:
-            println("BT powered on")
+            print("BT powered on")
             self.startScanning()
 
         case CBCentralManagerState.Resetting:
-            println("BT resetting")
+            print("BT resetting")
             self.clearDevices()
 
         case CBCentralManagerState.Unsupported:
-            println("BT unsupported")
-
-        default:
-            break
+            print("BT unsupported")
         }
     }
 
@@ -157,9 +143,9 @@ class MasterViewController: UITableViewController, CBCentralManagerDelegate, CBP
             return
         }
         if let central = centralManager {
-            var timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "refreshDone", userInfo: nil, repeats: false)
+            var _ = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(MasterViewController.refreshDone), userInfo: nil, repeats: false)
             
-            println("Started scanning")
+            print("Started scanning")
             self.clearDevices()
             central.scanForPeripheralsWithServices([MTServiceUUID], options: nil)
             self.scanning = true
@@ -168,26 +154,26 @@ class MasterViewController: UITableViewController, CBCentralManagerDelegate, CBP
 
     func stopScanning() {
         if let central = centralManager {
-            println("Stopped scanning")
+            print("Stopped scanning")
             central.stopScan()
         }
         self.scanning = false
     }
 
     func clearDevices() {
-        println("Clearing devices")
+        print("Clearing devices")
         self.peripherals?.removeAllObjects()
         self.tableView.reloadData()
     }
 
     func refresh(sender:AnyObject)
     {
-        println("Refresh")
+        print("Refresh")
         self.startScanning()
     }
 
     func refreshDone() {
-        println("Refresh done")
+        print("Refresh done")
         self.refreshControl!.endRefreshing()
         self.stopScanning()
     }
@@ -196,15 +182,14 @@ class MasterViewController: UITableViewController, CBCentralManagerDelegate, CBP
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let device = self.peripherals?.objectAtIndex(indexPath.row) as! MTService
-                println("Connecting device \(device.peripheral!.name)")
-                self.centralManager!.connectPeripheral(device.peripheral, options: nil)
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = device
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-                controller.navigationItem.leftItemsSupplementBackButton = true
-            }
+            let indexPath = self.tableView.indexPathForSelectedRow!
+            let device = self.peripherals?.objectAtIndex(indexPath.row) as! MTService
+            print("Connecting device \(device.peripheral!.name)")
+            self.centralManager!.connectPeripheral(device.peripheral!, options: nil)
+            let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+            controller.detailItem = device
+            controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+            controller.navigationItem.leftItemsSupplementBackButton = true
         }
     }
 
